@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Main {
@@ -30,8 +31,19 @@ public class Main {
         direction.setId(1);
         direction.setDepartmen("test");
         direction.setSpecialization("test");
+
+        Direction direction2 = new Direction();
+        direction.setId(1);
+        direction.setDepartmen("test");
+        direction.setSpecialization("test");
+
+        ArrayList<Direction> directions = new ArrayList<>();
+        directions.add(direction);
+        directions.add(direction2);
         ObjectMapper objectMapper = new ObjectMapper();
         String s = objectMapper.writeValueAsString(direction);
+        String s1 = objectMapper.writeValueAsString(directions);
         System.out.println(s);
+        System.out.println(s1);
     }
 }
