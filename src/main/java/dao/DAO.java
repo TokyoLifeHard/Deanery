@@ -5,13 +5,13 @@ import java.util.Optional;
 
 public abstract class DAO<T> {
 
-    abstract Optional<T> get(long id);
+    public abstract Optional<T> get(long id);
 
-    abstract List<T> getAll();
+    public abstract List<T> getAll();
 
-    abstract void save(T t);
+    public abstract void save(T t);
 
-    abstract void update(T t, String[] params);
+    public abstract void update(T t, T t1);
 
-    abstract void delete(T t);
+    public abstract void delete(T t);
 }
