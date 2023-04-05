@@ -7,12 +7,12 @@ public class Student {
     private String firstName;
     private String secoundName;
     private String patronymic;
-    private String teamId;
+    private int teamId;
 
     public Student() {
     }
 
-    public Student(int id, String firstName, String secoundName, String patronymic, String teamId) {
+    public Student(int id, String firstName, String secoundName, String patronymic, int teamId) {
         this.id = id;
         this.firstName = firstName;
         this.secoundName = secoundName;
@@ -52,11 +52,11 @@ public class Student {
         this.patronymic = patronymic;
     }
 
-    public String getTeamId() {
+    public int getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
+    public void setTeamId(int teamId) {
         this.teamId = teamId;
     }
 
@@ -68,10 +68,10 @@ public class Student {
         Student student = (Student) o;
 
         if (id != student.id) return false;
+        if (teamId != student.teamId) return false;
         if (!Objects.equals(firstName, student.firstName)) return false;
         if (!Objects.equals(secoundName, student.secoundName)) return false;
-        if (!Objects.equals(patronymic, student.patronymic)) return false;
-        return Objects.equals(teamId, student.teamId);
+        return Objects.equals(patronymic, student.patronymic);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Student {
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (secoundName != null ? secoundName.hashCode() : 0);
         result = 31 * result + (patronymic != null ? patronymic.hashCode() : 0);
-        result = 31 * result + (teamId != null ? teamId.hashCode() : 0);
+        result = 31 * result + teamId;
         return result;
     }
 
